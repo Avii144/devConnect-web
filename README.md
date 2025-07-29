@@ -12,7 +12,15 @@
 - create a footer
 - create a login
 - install axios
-- install CORS in backend add middilewae to the configuration :origin,crendetioals
+- install CORS in backend add middilewae to the configuration :origin, crendetioals
 - whnerver you are making APi call pass axios => {withcredentials:true}
 - install redux toolkit +react-redux =>npm i @reduxjs/toolkit
 - configurestore=>Provider=>creatSlice=>add reducers
+- add reduxtoolkit to chrome tools
+- Login and see if your data is coming properly in the store
+- Navbar should update as soon as user logs in
+- Refactoring code as utils
+- you should not be access other routes without login
+- if token is not present,redirect to login page
+- logout
+- profile page

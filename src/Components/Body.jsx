@@ -10,6 +10,7 @@ import { addUser } from "../Utils/userSlice";
 const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const userData = useSelector((store) => store.user);
   const fetchUser = async () => {
     try {
@@ -24,6 +25,7 @@ const Body = () => {
       console.error(err);
     }
   };
+
   useEffect(() => {
     fetchUser();
   }, []);
