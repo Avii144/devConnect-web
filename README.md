@@ -24,3 +24,7 @@
 - if token is not present,redirect to login page
 - logout
 - profile page
+- build usercard to the feed
+- edit profile feature
+- showToast
+- see all my connections

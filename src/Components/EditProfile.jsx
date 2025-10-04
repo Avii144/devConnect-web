@@ -79,7 +79,7 @@ function EditProfile({ user }) {
                   <input
                     type="text"
                     className="input input-bordered w-full max-w-xs"
-                    value={age}
+                    value={age || " "}
                     onChange={(e) => setAge(e.target.value)}
                   />
                 </label>
