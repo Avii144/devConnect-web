@@ -22,7 +22,7 @@ function EditProfile({ user }) {
         { firstName, lastName, age, gender, about, photoUrl },
         { withCredentials: true }
       );
-      dispatch(addUser(res.data));
+      dispatch(addUser(res.data.data));
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);
