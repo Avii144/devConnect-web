@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../Utils/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addRequests } from "../Utils/requestSlice";
+import { addRequests } from "../Utils/requestSlice.js";
 
 const Requests = () => {
   const requests = useSelector((store) => store.requests);
