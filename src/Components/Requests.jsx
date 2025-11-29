@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BASE_URL } from "../Utils/constants";
+import { BASE_URL } from "../utils/constants.js";
 import { useDispatch, useSelector } from "react-redux";
-import { addRequests, removeRequest } from "../Utils/requestSlice";
+import { addRequests, removeRequest } from "../utils/requestSlice.js";
 
 const Requests = () => {
   const requests = useSelector((store) => store.requests);
   const dispatch = useDispatch();
-  const [showbtns, setShowbtn] = useState(true);
   const reviewRequest = async (status, _id) => {
     try {
       const res = axios.post(
