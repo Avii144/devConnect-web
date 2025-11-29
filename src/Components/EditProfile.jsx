@@ -33,10 +33,10 @@ function EditProfile({ user }) {
   };
   return (
     <>
-      <div className="flex justify-center my-10">
+      <div className="flex justify-center my-10 ">
         <div className="flex justify-center mx-10">
           <div className="card card-border bg-base-300 w-96 shadow-2xl">
-            <div className="card-body">
+            <div className="card-body ">
               <h2 className="card-title flex justify-center">Edit Profile</h2>
               <div>
                 <label className="form-control w-full max-w-xs my-4">
@@ -106,7 +106,7 @@ function EditProfile({ user }) {
                   />
                 </label>
               </div>
-              <p className="text-red-500">{error}</p>
+              <p className=" text-red-500">{error}</p>
               <div className="card-actions justify-center">
                 <button className="btn btn-primary" onClick={saveProfile}>
                   Save Profile

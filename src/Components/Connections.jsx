@@ -12,7 +12,7 @@ const Connections = () => {
       const res = await axios.get(BASE_URL + "/user/connections", {
         withCredentials: true,
       });
-      dispatch(addConnections(res.data.data));
+      dispatch(addConnections(res?.data));
     };
     useEffect(() => {
       fetchConnections();
@@ -26,24 +26,34 @@ const Connections = () => {
   }
 
   return (
-    <div className="flex justify-center my-10">
+    <div className="text-center my-10">
       <h1 className="text-xl font-bold">Connections</h1>
-      <div>
-        {connections.map((connection) => {
-          const { firstName, lastName, age, gender, photoUrl, about } =
-            connection;
-          return (
-            <div
-              className="m-4 p-4 rounded-lg  bg-base-10"
-              key={connection.age}
-            >
-              <img alt="photo" src={photoUrl} />
-              <p>{firstName + " " + lastName}</p>
-              <p>{age + " " + gender}</p>
+
+      {connections.map((connection) => {
+        const { _id, firstName, lastName, age, gender, photoUrl, about } =
+          connection;
+        return (
+          <div
+            className="flex m-4 p-4 rounded-lg  bg-base-10 w-1/2 mx-auto"
+            key={_id}
+          >
+            <div>
+              <img
+                alt="photo"
+                className="w-20 h-20 rounded-full object-cover"
+                src={photoUrl}
+              />
             </div>
-          );
-        })}
-      </div>
+            <div className="text-left mx-4">
+              <h2 className="text-xl font-bold">
+                {firstName + " " + lastName}
+              </h2>
+              {age && gender && <p>{age + ", " + gender}</p>}
+              <p>{about}</p>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

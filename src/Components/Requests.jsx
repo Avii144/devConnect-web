@@ -1,12 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../Utils/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addRequests } from "../Utils/requestSlice.js";
+import { addRequests, removeRequest } from "../Utils/requestSlice.js";
 
 const Requests = () => {
   const requests = useSelector((store) => store.requests);
   const dispatch = useDispatch();
+  const [showbtns, setShowbtn] = useState(true);
+  const reviewRequest = async (status, _id) => {
+    try {
+      const res = axios.post(
+        BASE_URL + "/request/review/" + status + "/" + _id,
+        {},
+        { withCredentials: true }
+      );
+      dispatch(removeRequest(_id));
+    } catch (error) {}
+  };
   const fetchRequests = async () => {
     try {
       const res = await axios.get(BASE_URL + "/user/requests/received", {
@@ -31,11 +42,18 @@ const Requests = () => {
             <div className="m-4 p-4 rounded-lg  bg-base-10" key={request.age}>
               <img alt="photo" src={photoUrl} />
               <p>{firstName + " " + lastName}</p>
+
               <div>
-                <button className="btn btn-soft btn-primary mx-2">
-                  Reaject
+                <button
+                  className="btn btn-soft btn-primary mx-2"
+                  onClick={() => reviewRequest("rejected", request._id)}
+                >
+                  Reject
                 </button>
-                <button className="btn btn-soft btn-secondary mx-2">
+                <button
+                  className="btn btn-soft btn-secondary mx-2"
+                  onClick={() => reviewRequest("accepted", request._id)}
+                >
                   Accept
                 </button>
               </div>

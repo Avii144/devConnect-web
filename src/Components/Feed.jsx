@@ -21,6 +21,10 @@ function Feed() {
   useEffect(() => {
     getFeed();
   }, []);
+  if (!feed) return;
+  if (feed.length === 0) {
+    return <h1>no new users found</h1>;
+  }
   return (
     feed && (
       <div className="flex justify-center my-10">
